@@ -79,8 +79,10 @@ void dots(PImage img, int resolution) {
     for (int y = 0; y < img.height; y++) {
       if(calculateGray(tmp.pixels[getIndexFromXY(x, y, img)]) < resolution) {
         tmp.pixels[getIndexFromXY(x, y, img)] = color(0, 0, 255);//blue
+        //circle(x, y, 1/2*resolution); couldn't finish code to draw circles
       } else {
         tmp.pixels[getIndexFromXY(x, y, img)] = color(255, 0, 0);//red
+        //circle(x, y, resolution/2);
       }//else
     }//for y
   }//for x
