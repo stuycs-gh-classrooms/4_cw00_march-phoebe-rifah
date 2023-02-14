@@ -74,5 +74,16 @@ PImage highlightRed(PImage img) {
 
 
 void dots(PImage img, int resolution) {
-
+  PImage tmp = new PImage(img.width, img.height);
+  for(int x = 0; x < img.width; x++) {
+    for (int y = 0; y < img.height; y++) {
+      if(calculateGray(tmp.pixels[getIndexFromXY(x, y, img)]) < resolution) {
+        tmp.pixels[getIndexFromXY(x, y, img)] = color(0, 0, 255);//blue
+      } else {
+        tmp.pixels[getIndexFromXY(x, y, img)] = color(255, 0, 0);//red
+      }//else
+    }//for y
+  }//for x
+  tmp = img;
+  image(img, 0, 0);
 }//dots
